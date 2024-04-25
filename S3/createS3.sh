@@ -17,6 +17,7 @@ if [[ -n "$bucket_exists" ]]; then
     echo "Creating S3 bucket $bucket_name in region $region..."
     aws s3api create-bucket --bucket "$bucket_name" --region "$region"
     echo "S3 bucket $bucket_name created successfully in region $region."
+    echo "S3 bucket created: $bucket_name" >> ../resourcedata.txt
 else
     echo "S3 bucket $bucket_name already exists."
 fi
