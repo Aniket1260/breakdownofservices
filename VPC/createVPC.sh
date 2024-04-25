@@ -19,6 +19,7 @@ if [[ -n "$vpc_exists" ]]; then
     vpc_id=$(aws ec2 create-vpc --cidr-block "$cidr_block" --region "$region" --output text --query 'Vpc.VpcId')
     aws ec2 create-tags --resources "$vpc_id" --tags "Key=Name,Value=$vpc_name" --region "$region"
     echo "VPC $vpc_name created successfully with VPC ID $vpc_id in region $region."
+    echo "VPC created: $vpc_id" >> ../resourcedata.txt
 else
     echo "VPC $vpc_name already exists."
 fi
